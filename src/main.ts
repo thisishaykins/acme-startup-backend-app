@@ -12,11 +12,11 @@ async function bootstrap() {
     .setTitle('ACME Startup Service')
     .setDescription('The ACME Startup Service API Documentation')
     .setVersion('1.0')
-    .addTag('invoices')
+    // .addTag('invoices')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
-  await app.listen(3001);
+  await app.listen(process.env.APP_PORT || 3000);
 }
 bootstrap();

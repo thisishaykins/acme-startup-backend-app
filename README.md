@@ -126,7 +126,7 @@ $ npm run test:cov
 
 ## Endpoints
 ```
-Documentation: http://127.0.0.1:3000/api
+Documentation: http://127.0.0.1:3000/docs
 APP_URL: http://127.0.0.1:3000/
 
 - POST APP_URL/invoices: Create a new invoice.
