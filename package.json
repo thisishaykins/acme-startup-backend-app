@@ -1,8 +1,16 @@
 {
   "name": "acme-startup-backend-app",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "ACME Startup Backend App ",
+  "keywords": [
+    "invoices",
+    "invoices details",
+    "nodejs",
+    "nestjs",
+    "postgres",
+    "typescript"
+  ],
+  "author": "Akinshola Samuel AKINDE",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -21,12 +29,16 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
-    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/platform-express": "^8.4.7",
+    "@nestjs/typeorm": "^10.0.1",
+    "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.17"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -67,5 +79,13 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisishaykins/acme-startup-backend-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thisishaykins/acme-startup-backend-app/issues"
+  },
+  "homepage": "https://github.com/thisishaykins/acme-startup-backend-app#readme"
 }
