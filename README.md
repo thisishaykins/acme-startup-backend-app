@@ -1,30 +1,96 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ACME Startup Invoicing Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is the backend API for the ACME Invoicing application, built using NestJS and PostgreSQL.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Table of Contents
 
-## Description
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Configuration](#configuration)
+- [Database Setup](#database-setup)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Endpoints](#endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## Getting Started
+Clone the repository:
+
+  ```bash
+   git clone https://github.com/thisishaykins/acme-startup-backend-app.git
+
+   cd acme-startup-backend-app
+
+   npm install 
+  ```
+
+## Project Structure
+The project follows the standard NestJS project structure:
+```
+acme-startup-backend-app/
+├── src/
+|   ├── invoice/
+|   |   ├── dto/
+|   |   |   ├── create-invoice.dto.ts
+|   |   |   ├── invoice-detail.dto.ts
+|   |   |   ├── update-invoice.dto.ts
+|   |   ├── entities/
+|   |   |   ├── invoice.entity.ts
+|   |   |   ├── invoice-detail.entity.ts
+|   |   ├── invoice.controller.ts
+|   |   ├── invoice.service.ts
+|   |   ├── invoice.module.ts
+├── app.controller.spec.ts
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+├── main.ts
+
+```
+- invoices/: Contains the entities, DTOs, controller, service, and module related to invoices.
+- app.module.ts: Main module where other modules are imported.
+- app.controller.ts: Main controller where main app controller activities.
+- app.service.ts: Main service where main app service activities.
+- main.ts: Entry point of the application.
+
+
+
+## Configuration
+Change and update environment variables
+
+```bash
+# copy to .env
+$ cp .env.sample .env
+
+# update .env
+$ vim .env
+```
+
+## Database Setup
+
+1. Create a PostgreSQL database named acme_invoicing.
+2. Update the database connection details in the .env file. 
+
+Update DB config in the .env below
+
+```bash
+DB_HOST=""
+DB_PORT=
+DB_USERNAME=""
+DB_PASSWORD=""
+DB_DATABASE=""
+```
+
 
 ## Installation
 
@@ -32,7 +98,7 @@
 $ npm install
 ```
 
-## Running the app
+## Running the Application
 
 ```bash
 # development
@@ -45,7 +111,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testing
 
 ```bash
 # unit tests
@@ -58,16 +124,29 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Endpoints
+```
+Documentation: http://127.0.0.1:3000/api
+APP_URL: http://127.0.0.1:3000/
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- POST APP_URL/invoices: Create a new invoice.
+- GET APP_URL/invoices: Get a list of all invoices.
+- PUT APP_URL/invoices/id: Patch an existing invoice.
+- GET APP_URL/invoices/id: Get a single invoice.
+- DEL APP_URL/invoices/id: Delete a single invoice.
+```
+
+## Contributing
+
+Feel free to contribute to this project. Open an issue or submit a pull request, please reach out [akinsholasamuel@gmail.com](mailto:akinsholasamuel@gmail.com).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Akinshola Samuel AKINDE](https://linkedin.com/in/akinshola)
+- Website - [https://akinshola.com](https://akinshola.com/)
+- Twitter - [@thisishaykins](https://twitter.com/thisishaykins)
+- GitHub - [@thisishaykins](https://github.com/thisishaykins)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the [MIT licensed](LICENSE).
