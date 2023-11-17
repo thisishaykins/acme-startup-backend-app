@@ -129,11 +129,11 @@ $ npm run test:cov
 Documentation: http://127.0.0.1:3000/docs
 APP_URL: http://127.0.0.1:3000/
 
-- POST APP_URL/invoices: Create a new invoice.
-- GET APP_URL/invoices: Get a list of all invoices.
-- PUT APP_URL/invoices/id: Patch an existing invoice.
-- GET APP_URL/invoices/id: Get a single invoice.
-- DEL APP_URL/invoices/id: Delete a single invoice.
+- POST APP_URL/api/invoices: Create a new invoice.
+- GET APP_URL/api/invoices: Get a list of all invoices.
+- PUT APP_URL/api/invoices/id: Patch an existing invoice.
+- GET APP_URL/api/invoices/id: Get a single invoice.
+- DEL APP_URL/api/invoices/id: Delete a single invoice.
 ```
 
 ## Contributing

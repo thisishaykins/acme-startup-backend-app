@@ -12,7 +12,7 @@ import { Invoice } from './entities/invoice.entity';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { UpdateInvoiceDto } from './dto/update-invoice.dto';
 
-@Controller('invoice')
+@Controller('api/invoice')
 export class InvoiceController {
   constructor(private readonly invoiceService: InvoiceService) {}
 
